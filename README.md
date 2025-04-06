@@ -32,7 +32,7 @@ npm install
 Rename `.env.example` to `.env` and fill out the following:
 
 ```env
-# Discord User Token (DO NOT SHARE)
+# Discord User Token (Do Not Share)
 TOKEN=Enter_Token_Here
 
 # Command Prefix
