@@ -23,7 +23,7 @@ const VcStatus = {
                     .then((_) => message.channel.send(`> ✅ Voice status changed to: **${status}**`))
                     .catch((_) => null);
           } else {
-               return message.channel.send('> ❌ You are not connected to a guild voice channel.');
+               return message.channel.send('> ❎ You are not connected to a guild voice channel.');
           }
      },
 };

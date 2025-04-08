@@ -21,7 +21,7 @@ const ClearPresence = {
 
                return await message.channel.send(`> ✅ Presence cleared and presence.json updated!`);
           } catch (error) {
-               return await message.channel.send(`> ❌ Error clearing presence!`);
+               return await message.channel.send(`> ❎ Error clearing presence!`);
           }
      },
 };

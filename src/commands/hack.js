@@ -37,7 +37,7 @@ const Hack = {
                     message.channel.send('> ✅ Hack successful! You now control the system! (Just kidding 🤣)');
                }, 10000);
           } catch (error) {
-               return await message.channel.send('> ❌ Error executing the hack command!');
+               return await message.channel.send('> ❎ Error executing the hack command!');
           }
      },
 };

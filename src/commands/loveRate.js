@@ -18,7 +18,7 @@ const LoveRate = {
                let users = message.mentions.users.map((u) => u) || [];
 
                if (users.length < 2) {
-                    return await message.channel.send('> ❌ Please mention two users to calculate love compatibility!');
+                    return await message.channel.send('> ❎ Please mention two users to calculate love compatibility!');
                }
 
                let lovePercentage = Math.floor(Math.random() * 101);
@@ -26,7 +26,7 @@ const LoveRate = {
 
                await message.channel.send(`💖 | **${users[0].username}** ❤️ **${users[1].username}**\nLove Compatibility: **${lovePercentage}%**\n${loveBar}`);
           } catch (error) {
-               return await message.channel.send('> ❌ Error calculating love compatibility!');
+               return await message.channel.send('> ❎ Error calculating love compatibility!');
           }
      },
 };

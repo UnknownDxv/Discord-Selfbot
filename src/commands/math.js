@@ -17,14 +17,14 @@ const Math = {
      async execute(client, message, args) {
           try {
                let expression = args.join(' ');
-               if (!expression) return await message.channel.send('> ❌ Please provide a mathematical expression.');
+               if (!expression) return await message.channel.send('> ❎ Please provide a mathematical expression.');
 
                let result = evaluate(expression).toString().replace(/\s+/g, '');
                result = result.slice(0, -1) + result.slice(-1).toUpperCase();
 
                await message.channel.send(`🧮 | **Expression:** \`${expression}\`\n📊 | **Result:** \`${result}\``);
           } catch (error) {
-               return await message.channel.send('> ❌ Invalid mathematical expression!');
+               return await message.channel.send('> ❎ Invalid mathematical expression!');
           }
      },
 };

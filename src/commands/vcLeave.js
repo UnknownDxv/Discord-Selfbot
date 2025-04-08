@@ -15,14 +15,14 @@ const VcLeave = {
       */
      async execute(client, message, args) {
           try {
-               if (!client.vcConnection) return await message.channel.send(`> ❌ I'm not connected to any voice channel!`);
+               if (!client.vcConnection) return await message.channel.send(`> ❎ I'm not connected to any voice channel!`);
 
                await client.vcConnection.disconnect();
                client.vcConnection = null;
 
                return await message.channel.send(`> ✅ Successfully left the voice channel!`);
           } catch (error) {
-               return await message.channel.send(`> ❌ Error leaving voice channel!`);
+               return await message.channel.send(`> ❎ Error leaving voice channel!`);
           }
      },
 };

@@ -18,12 +18,12 @@ const Nickname = {
                if (!message.guild) return;
 
                if (!message.guild.me?.permissions.has('CHANGE_NICKNAME')) {
-                    return message.channel.send('> ❌ I do not have permission to change nicknames.').then((msg) => setTimeout(() => msg.delete().catch(() => null), 5000));
+                    return message.channel.send('> ❎ I do not have permission to change nicknames.').then((msg) => setTimeout(() => msg.delete().catch(() => null), 5000));
                }
 
                const newNickname = args.join(' ');
                if (!newNickname) {
-                    return message.channel.send('> ❌ Please provide a new nickname.').then((msg) => setTimeout(() => msg.delete().catch(() => null), 5000));
+                    return message.channel.send('> ❎ Please provide a new nickname.').then((msg) => setTimeout(() => msg.delete().catch(() => null), 5000));
                }
 
                await message.member.setNickname(newNickname).catch(() => null);

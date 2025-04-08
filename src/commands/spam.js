@@ -16,14 +16,14 @@ const Spam = {
      async execute(client, message, args) {
           try {
                if (!args[0] || isNaN(args[0])) {
-                    return message.channel.send('> ❌ Please provide a valid number for the spam count.').then((msg) => setTimeout(() => msg.delete().catch(() => null), 5000));
+                    return message.channel.send('> ❎ Please provide a valid number for the spam count.').then((msg) => setTimeout(() => msg.delete().catch(() => null), 5000));
                }
 
                let count = Math.min(parseInt(args[0]), 100);
                const spamMessage = args.slice(1).join(' ');
 
                if (!spamMessage) {
-                    return message.channel.send('> ❌ Please provide a message to spam.').then((msg) => setTimeout(() => msg.delete().catch(() => null), 5000));
+                    return message.channel.send('> ❎ Please provide a message to spam.').then((msg) => setTimeout(() => msg.delete().catch(() => null), 5000));
                }
 
                for (let i = 0; i < count; i++) {

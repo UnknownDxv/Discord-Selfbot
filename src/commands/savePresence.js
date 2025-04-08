@@ -16,7 +16,7 @@ const SavePresence = {
      execute(client, message, args) {
           const activities = client.user.presence.activities;
           if (!activities || activities.length === 0) {
-               return message.channel.send('> ❌ No activities found to save.');
+               return message.channel.send('> ❎ No activities found to save.');
           }
 
           const jsonData = JSON.stringify(client.user.presence, null, 2);
@@ -24,7 +24,7 @@ const SavePresence = {
                fs.writeFileSync('./src/json/presence.json', jsonData, 'utf8');
                message.channel.send('> ✅ Bot presence data saved!');
           } catch (error) {
-               return message.channel.send('> ❌ Failed to save presence data.');
+               return message.channel.send('> ❎ Failed to save presence data.');
           }
      },
 };

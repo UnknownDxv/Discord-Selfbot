@@ -29,7 +29,6 @@ const ReadyEvent = {
           let oldData = {};
           if (rawData.trim() !== '{}' && rawData.trim() !== '') {
                oldData = JSON.parse(rawData);
-               oldData.activities[0].session_id = null;
                client.user.setPresence(oldData);
                console.log('✅ | Presence Set From Saved JSON!');
           }

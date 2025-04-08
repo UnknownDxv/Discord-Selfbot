@@ -19,7 +19,7 @@ const UPI = {
                await message.channel.send(`💳 **UPI Payment Details:** || ${upiID} ||`);
           } catch (error) {
                console.error('Error sending UPI details:', error);
-               message.channel.send('> ❌ Error sending UPI details. Please try again later.').catch(() => null);
+               message.channel.send('> ❎ Error sending UPI details. Please try again later.').catch(() => null);
           }
      },
 };

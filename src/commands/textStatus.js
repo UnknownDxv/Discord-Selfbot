@@ -16,7 +16,7 @@ const TextStatus = {
      async execute(client, message, args) {
           try {
                const text = args.join(' ');
-               if (!text) return await message.channel.send('> ❌ Please provide a status message.');
+               if (!text) return await message.channel.send('> ❎ Please provide a status message.');
 
                const emojiRegex = /(<a?:\w+:\d+>)|([\p{Emoji}])/gu;
                const matches = [...text.matchAll(emojiRegex)];
@@ -35,7 +35,7 @@ const TextStatus = {
                return await message.channel.send(`> ✅ Text status set to: **${text}**`);
           } catch (error) {
                console.error(error);
-               return await message.channel.send(`> ❌ Error setting text status!`);
+               return await message.channel.send(`> ❎ Error setting text status!`);
           }
      },
 };

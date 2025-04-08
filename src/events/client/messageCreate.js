@@ -28,7 +28,7 @@ const MessageCreate = {
 
           if (command.args && command.args === true) {
                if (!args.length) {
-                    message.channel.send(`> ❌ Missing Arguments! \`${prefix + command.usage}\``).then((m) => setTimeout(() => m.delete().catch((_) => null), 10000));
+                    message.channel.send(`> ❎ Missing Arguments! \`${prefix + command.usage}\``).then((m) => setTimeout(() => m.delete().catch((_) => null), 10000));
                     return;
                }
           }
