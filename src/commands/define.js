@@ -16,7 +16,7 @@ const Define = {
      */
     async execute(client, message, args) {
         if (!args.length) {
-            return message.channel.send('❎ **Please provide a word to define.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
+            return message.channel.send('> ❌ **Please provide a word to define.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
         }
 
         let word = args.join(' ');
@@ -27,7 +27,7 @@ const Define = {
             let results = response.data.list;
 
             if (!results.length) {
-                return message.channel.send('❎ **No definition found for this word.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
+                return message.channel.send('> ❌ **No definition found for this word.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
             }
 
             let definition = results[0];
@@ -36,7 +36,7 @@ const Define = {
 
         } catch (error) {
             console.error(error);
-            return message.channel.send('❎ **Failed to fetch definition. Please try again later.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
+            return message.channel.send('> ❌ **Failed to fetch definition. Please try again later.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
         }
     }
 };

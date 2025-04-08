@@ -18,10 +18,10 @@ const VcStatus = {
         const guild = client.guilds.cache.find(guild => guild.members.me.voice.channel)
 
         if (guild) {
-            guild?.members?.me?.voice?.setStatus(status).then(_ => message.channel.send(`✅ | Voice status changed to: **${status}**`)).catch(_ => null)
+            guild?.members?.me?.voice?.setStatus(status).then(_ => message.channel.send(`> ✅ Voice status changed to: **${status}**`)).catch(_ => null)
 
         } else {
-            return message.channel.send('❎ | You are not connected to a guild voice channel.');
+            return message.channel.send('> ❌ You are not connected to a guild voice channel.');
         }
 
     }

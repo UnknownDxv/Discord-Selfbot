@@ -16,7 +16,7 @@ const YTSearch = {
      */
     async execute(client, message, args) {
         if (!args.length) {
-            return message.channel.send('❎ **Please provide a search query.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
+            return message.channel.send('> ❌ **Please provide a search query.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
         }
 
         let query = args.join(' ');
@@ -26,14 +26,14 @@ const YTSearch = {
             let video = results.videos[0];
 
             if (!video) {
-                return message.channel.send('❎ **No results found for your query.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
+                return message.channel.send('> ❌ **No results found for your query.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
             }
 
             message.channel.send(`>>> 🎥 **YouTube Search Result**\n📌 **Title:** ${video.title}\n📅 **Uploaded:** ${video.ago}\n🏬 **Author:** ${video.author.name}\n👀 **Views:** ${video.views.toLocaleString()}\n🔗 **Link:** ${video.url}`);
 
         } catch (error) {
             console.error(error);
-            return message.channel.send('❎ **Failed to fetch YouTube results. Please try again later.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
+            return message.channel.send('> ❌ **Failed to fetch YouTube results. Please try again later.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
         }
     }
 };

@@ -16,7 +16,7 @@ const VcJoin = {
   async execute(client, message, args) {
     try {
       let channel = message.mentions.channels.first() || client.channels.cache.get(args[0])
-      if (!channel) return await message.channel.send(`❎ | Voice channel not found!`)
+      if (!channel) return await message.channel.send(`> ❌ Voice channel not found!`)
 
       if (args[1] && ["deaf", "d", "deafen"].includes(args[1])) {
         client.vcConnection = await client.voice.joinChannel(channel, {
@@ -38,9 +38,9 @@ const VcJoin = {
         })
       }
 
-      return await message.channel.send(`✅ | Successfully joined the voice channel!`)
+      return await message.channel.send(`> ✅ Successfully joined the voice channel!`)
     } catch (error) {
-      return await message.channel.send(`❎ | Error joining voice channel!`)
+      return await message.channel.send(`> ❌ Error joining voice channel!`)
     }
   }
 }

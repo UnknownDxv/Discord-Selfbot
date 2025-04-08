@@ -4,7 +4,7 @@ const TextStatus = {
     name: 'textstatus',
     description: 'Set a text status!',
     usage: 'textstatus <text>',
-    aliases: [],
+    aliases: ['ts'],
     args: true,
     options: [],
     /**
@@ -17,17 +17,28 @@ const TextStatus = {
         try {
             const text = args.join(' ');
             if (!text)
-                return await message.channel.send('❎ | Please provide a status message.');
+                return await message.channel.send('> ❌ Please provide a status message.');
 
-            const custom = new CustomStatus(client).setState(text);
+            const emojiRegex = /(<a?:\w+:\d+>)|([\p{Emoji}])/gu;
+            const matches = [...text.matchAll(emojiRegex)];
 
-            client.user.setPresence({ activities: [custom] });
+            let emoji = null;
+            let cleanText = text;
 
-            return await message.channel.send(`✅ | Text status set to: **${text}**`);
+            if (matches.length === 1) {
+                emoji = matches[0][0];
+                cleanText = text.replace(emoji, '').trim();
+            }
+
+            const custom = new CustomStatus(client).setEmoji(emoji || null).setState(cleanText);
+            client.user.setPresence({ activities: [custom], status: 'online' });
+
+            return await message.channel.send(`> ✅ Text status set to: **${text}**`);
         } catch (error) {
-            return await message.channel.send(`❎ | Error setting text status!`);
+            console.error(error);
+            return await message.channel.send(`> ❌ Error setting text status!`);
         }
     }
-}
+};
 
 export default TextStatus;

@@ -36,6 +36,7 @@ const GTSniper = {
                     .filter(word => word.toLowerCase().includes(letters) && /^[a-zA-Z]+$/.test(word));
 
                 if (filtered.length > 0) {
+                    await message.channel.sendTyping()
                     await message.channel.send(filtered[0]).catch(() => null);
                 }
             } catch (error) {

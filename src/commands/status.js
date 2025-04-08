@@ -19,14 +19,14 @@ const Status = {
             const validStatuses = ['online', 'idle', 'dnd', 'invisible'];
 
             if (!validStatuses.includes(status)) {
-                return await message.channel.send(`❎ | Invalid status! Use one of: \`${validStatuses.join(', ')}\``);
+                return await message.channel.send(`> ❌ Invalid status! Use one of: \`${validStatuses.join(', ')}\``);
             }
 
             client.user.setPresence({ status });
 
-            return await message.channel.send(`✅ | Status set to: **${status}**`);
+            return await message.channel.send(`> ✅ Status set to: **${status}**`);
         } catch (error) {
-            return await message.channel.send(`❎ | Error setting status!`);
+            return await message.channel.send(`> ❌ Error setting status!`);
         }
     }
 }

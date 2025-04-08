@@ -22,7 +22,7 @@ const Translate = {
             text = await message.channel.messages.fetch(message?.reference?.id)?.content;
         }
 
-        if (!text) return message.channel.send('❎ **Please provide text to translate.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
+        if (!text) return message.channel.send('> ❌ **Please provide text to translate.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
 
         try {
             let res = await translate(text, { to: 'en' });
@@ -31,7 +31,7 @@ const Translate = {
 
         } catch (error) {
             console.error(error);
-            return message.channel.send('❎ **Failed to translate. Please try again.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
+            return message.channel.send('> ❌ **Failed to translate. Please try again.**').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
         }
     }
 };

@@ -20,7 +20,7 @@ const GayRate = {
 
             await message.channel.send(`🏳️‍🌈 | **${user.username}** is **${gayPercent}%** gay!`);
         } catch (error) {
-            return await message.channel.send(`❎ | Error calculating gay rate!`);
+            return await message.channel.send(`> ❌ Error calculating gay rate!`);
         }
     }
 };

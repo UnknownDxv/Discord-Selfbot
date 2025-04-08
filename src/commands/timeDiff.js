@@ -17,7 +17,7 @@ const TimeDiff = {
         let firstMessageId = args[0];
         let secondMessageId = args[1];
 
-        if (!firstMessageId || !secondMessageId) return message.channel.send(`❎ | Please provide two valid message IDs.`)
+        if (!firstMessageId || !secondMessageId) return message.channel.send(`> ❌ Please provide two valid message IDs.`)
 
         const date1 = snowflakeToDate(firstMessageId);
         const date2 = snowflakeToDate(secondMessageId);

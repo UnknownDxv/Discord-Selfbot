@@ -18,7 +18,7 @@ const NoMention = {
         let text = args.slice(1).join(' ') || '';
 
         if (!id || isNaN(id) || !/^\d+$/.test(id)) {
-            return message.channel.send('❎ Please provide a valid numeric ID.').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
+            return message.channel.send('> ❌ Please provide a valid numeric ID.').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
         }
 
         let user = await client.users.fetch(id).catch(() => null);
@@ -31,7 +31,7 @@ const NoMention = {
             return message.channel.send({ content: `<@&${role.id}> ${text}`, allowedMentions: { parse: [] } });
         }
 
-        return message.channel.send('❎ This ID does not belong to any User or Role.').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
+        return message.channel.send('> ❌ This ID does not belong to any User or Role.').then(m => setTimeout(() => m.delete().catch(() => null), 5000));
 
 
     }

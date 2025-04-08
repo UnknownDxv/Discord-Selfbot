@@ -22,7 +22,7 @@ const Advice = {
             await message.channel.send(`😼 **Advice:** ${advice}`);
         } catch (error) {
             console.error('Error fetching random advice:', error);
-            await message.channel.send(`${client.config.emoji.cross} | Could not fetch a random advice!`);
+            await message.channel.send(`> ❌ Could not fetch a random advice!`);
         }
     }
 };

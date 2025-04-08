@@ -19,17 +19,17 @@ const TriggerTyping = {
         let msTime = ms(args[0]);
 
         if (!msTime || isNaN(msTime)) {
-            return message.channel.send('❎ | Invalid duration! Please provide a valid time format (e.g., `10s`, `5m`, `1h`).');
+            return message.channel.send('> ❌ Invalid duration! Please provide a valid time format (e.g., `10s`, `5m`, `1h`).');
         }
 
         let duration = Math.floor(msTime / 1000);
 
         if (duration < 300) {
-            return message.channel.send('❎ | Minimum allowed duration is **300 seconds (5 minutes)**.');
+            return message.channel.send('> ❌ Minimum allowed duration is **300 seconds (5 minutes)**.');
         }
 
         if (duration > 7200) {
-            return message.channel.send('❎ | Maximum allowed duration is **7200 seconds (2 hours)**.');
+            return message.channel.send('> ❌ Maximum allowed duration is **7200 seconds (2 hours)**.');
         }
 
         async function triggerNonStopTyping(message, duration) {

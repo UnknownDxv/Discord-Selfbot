@@ -3,6 +3,7 @@ import fetch from 'node-fetch'
 const webhookUrl = process.env.WEBHOOK_URL || null
 /**
  * @param {String} content
+ * @param {Array} embeds
  */
 export async function sendToWebhook(content, embeds = []) {
     try {

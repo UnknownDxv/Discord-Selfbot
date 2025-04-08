@@ -21,13 +21,16 @@ const MessageCreate = {
 
         const command = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd))
         if (!command) return;
-        message.delete().catch(_ => null)
+        
+        if (command.name !== 'eval') {
+            message.delete().catch(_ => null)
+        }
 
         if (command.args && command.args === true) {
             if (!args.length) {
 
                 message.channel
-                    .send(`❎ Missing Arguments! \`${prefix + command.usage}\``)
+                    .send(`> ❌ Missing Arguments! \`${prefix + command.usage}\``)
                     .then((m) => setTimeout(() => m.delete().catch((_) => null), 10000));
                 return;
             }

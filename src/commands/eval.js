@@ -1,5 +1,6 @@
 import Discord from 'discord.js-selfbot-v13';
 import axios from 'axios';
+import fetch from 'node-fetch';
 import * as fs from 'node:fs';
 import util from 'util';
 
@@ -19,28 +20,40 @@ const Eval = {
     async execute(client, message, args) {
         async function clean(client, text) {
             if (typeof text !== 'string') {
-                text = util.inspect(text, {
-                    depth: 0,
-                });
+                text = util.inspect(text, { depth: 0 });
             }
-            text = text.replaceAll(process.env.TOKEN, '[TOKEN REDACTED]');
+            if (process.env.TOKEN) {
+                text = text.replaceAll(process.env.TOKEN, '[TOKEN REDACTED]');
+            }
             return text;
         }
-        const code = args.join(" ")
+
+        const code = args.join(" ");
 
         try {
-            const evaled = await eval(code);
-            const result = await clean(client, evaled);
-            await message.channel.send({
-                content: `✅ | **Evaluation Successful:**\n\n\`\`\`js\n${result}\n\`\`\``,
-            }).catch(_ => null)
+            const evaled = eval(code);
 
+            if (evaled instanceof Promise) {
+                await message.react('✅').catch(() => null);
+                return;
+            }
+
+            const result = await clean(client, evaled);
+
+            if (result && result !== 'undefined') {
+                await message.channel.send({
+                    content: `\`\`\`js\n${result}\n\`\`\``,
+                }).catch(() => null);
+            } else {
+                return message.react('✅').catch(() => null);
+            }
         } catch (error) {
-            await message.channel.send({
-                content: `❎ | **Evaluation Error:**\n\n\`\`\`js\n${error.message}\n\`\`\``,
-            }).catch(_ => null)
+            message.react('❌').catch(() => null);
+            message.channel.send({
+                content: `\`\`\`js\n${error.message}\n\`\`\``,
+            }).catch(() => null);
         }
     }
-};
+}
 
 export default Eval;
