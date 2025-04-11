@@ -1,8 +1,8 @@
 # Discord-Selfbot
 
-A powerful and feature-rich Discord selfbot built with [discord.js-selfbot-v13](https://www.npmjs.com/package/discord.js-selfbot-v13). Includes Nitro sniper, utility tools, meme generators, and more â€” made with love by [UnknownDxv](https://github.com/UnknownDxv).
+A powerful and feature-rich Discord selfbot built with [discord.js-selfbot-v13](https://www.npmjs.com/package/discord.js-selfbot-v13). Includes Nitro sniper, utility tools, meme generators, and more - made with love by [UnknownDxv](https://github.com/UnknownDxv).
 
-[!CAUTION]
+> [!CAUTION]
 > **Note**: This is for educational purposes only. Using selfbots on Discord is against Discord's [Terms of Service](https://discord.com/terms) and may lead to account termination.
 
 ---
