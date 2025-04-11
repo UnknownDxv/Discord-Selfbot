@@ -1,28 +1,17 @@
 {
   "userId": "1013815373407195258",
   "guild": null,
-  "status": "online",
+  "status": "idle",
   "activities": [
     {
-      "name": "Erica's Server",
-      "type": 3,
-      "session_id": "f6b276e970a8eca25c5caa3dc6f3a363",
-      "application_id": "1321404776705036340",
-      "details": "Join Erica's Server",
-      "state": "Official Discord Server of Erica OP!",
-      "flags": 0,
-      "buttons": [
-        "Join Now"
-      ],
-      "assets": {
-        "large_image": "mp:icons/1333031195688042597/a_87f6554ecbf19de3b971d80c6f13d253.gif",
-        "small_image": "mp:emojis/878616553678061578.png"
+      "name": " ",
+      "emoji": {
+        "id": "1341005210398625834",
+        "name": "er_cute",
+        "animated": false
       },
-      "metadata": {
-        "button_urls": [
-          "https://discord.gg/etYNPqRd4S"
-        ]
-      }
+      "type": 4,
+      "state": "Billions of eyes but I just wanna look at yours"
     }
   ],
   "clientStatus": null,

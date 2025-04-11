@@ -9,13 +9,12 @@ const IpLookup = {
     args: true,
     options: [],
     /**
-     * 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {Array} args 
+     *
+     * @param {Client} client
+     * @param {Message} message
+     * @param {Array} args
      */
     async execute(client, message, args) {
-
         const ipAddress = args[0];
         if (!ipAddress) {
             return message.channel.send('> ❎ Please provide an IP address to lookup.').catch(console.error);
@@ -29,18 +28,19 @@ const IpLookup = {
                 return message.channel.send('> ❎ Invalid IP address or failed to fetch data.').catch(console.error);
             }
 
-            const ipInfoMessage = `**IP Address:** ${data.query}\n` +
+            const ipInfoMessage =
+                `**IP Address:** ${data.query}\n` +
                 `**Country:** ${data.country}\n` +
                 `**Region:** ${data.regionName}\n` +
                 `**City:** ${data.city}\n` +
                 `**ZIP:** ${data.zip || 'N/A'}\n` +
                 `**ISP:** ${data.isp}`;
 
-            message.channel.send(ipInfoMessage)
+            message.channel.send(ipInfoMessage);
         } catch (error) {
             message.channel.send('> ❎ Error looking up IP address. Please try again later.').catch(console.error);
         }
-    }
+    },
 };
 
 export default IpLookup;

@@ -10,13 +10,13 @@ client.gtSniperChannelId = null;
 const handlers = ['antiCrash', 'loadEvent', 'loadCommand'];
 
 (async () => {
-     console.clear();
-     await Promise.all(
-          handlers.map(async (handler) => {
-               const module = await import(`./handlers/${handler}.js`);
-               module.default(client);
-          })
-     );
+    console.clear();
+    await Promise.all(
+        handlers.map(async (handler) => {
+            const module = await import(`./handlers/${handler}.js`);
+            module.default(client);
+        })
+    );
 })();
 
 client.login(process.env.TOKEN).catch(console.error);
