@@ -1,17 +1,17 @@
 {
   "userId": "1013815373407195258",
   "guild": null,
-  "status": "idle",
+  "status": "invisible",
   "activities": [
     {
       "name": " ",
       "emoji": {
-        "id": "1341005210398625834",
-        "name": "er_cute",
+        "id": null,
+        "name": "👀",
         "animated": false
       },
       "type": 4,
-      "state": "Billions of eyes but I just wanna look at yours"
+      "state": "Ek nazar uski, aur dil out of rhythm."
     }
   ],
   "clientStatus": null,
